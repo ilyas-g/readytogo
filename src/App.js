@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import Button from './components/button/Button';
 
 function App() {
   const [switch1, setSwitch1] = useState(false);
@@ -50,6 +51,21 @@ function App() {
           }}>On</button>
       </div>
 
+      <div>
+        <Button
+          className={`${switch1 === true ? 'active' : ''}`}
+          setSwitch={setSwitch1} />
+        <Button className={`${switch1 === true ? 'active' : ''}`}
+          setSwitch={setSwitch1} />
+      </div>
+      <div>
+        <Button />
+        <Button />
+      </div>
+      <div>
+        <Button />
+        <Button />
+      </div>
       <h2>
         {
           switch1 === true &&
@@ -57,6 +73,15 @@ function App() {
             switch3 === true ? 'Go !' : 'No way !'
         }
       </h2>
+
+      <button
+        onClick={() => {
+          setSwitch1(false);
+          setSwitch2(false);
+          setSwitch3(false);
+        }}
+      >Reset
+      </button>
     </div>
   );
 }
